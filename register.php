@@ -1,7 +1,7 @@
 <?php
 
 $uname=$_REQUEST['uname'];
-// name validation
+//1 name validation
 if (empty($uname)) {
 	echo " i) cannot be empty field";
 }elseif (str_word_count($uname)<2) {
@@ -15,7 +15,7 @@ echo "Name :".$_REQUEST['uname']."<br>";
 }
 
 
-//email validation
+//2 email validation
 
 $email=trim($_REQUEST['email']);
 if (empty($email)) {
@@ -27,7 +27,7 @@ elseif (strpos($email, "@") && stripos($email,".")) {
 	if (strpos($emString[1], ".")==$strL) {
 	echo "invalid";
 	}else{
-		echo $email;
+		echo "EMAIL :".$email;
 	}
 }
 else{
@@ -35,16 +35,16 @@ else{
 }
 
 
-// Gender validation
+//3 Gender validation
 $gender = $_REQUEST['gender'];
 	if (empty($gender)) {
 		echo "<br>empty gender field";
 	}
 	else{
-		echo "<br>".$gender;
+		echo "<br>GENDER :".$gender;
 	}
 
-// dob validation
+//4  dob validation
 	$day= $_REQUEST['day'];
 	$month= $_REQUEST['month'];
 	$year =$_REQUEST['year'];
@@ -56,7 +56,50 @@ $gender = $_REQUEST['gender'];
 		echo "<br>invalid Date field";
 	}
 	else{
-		echo "<br>".$day."/".$month."/".$year;
+		echo "<br>DOB :".$day."/".$month."/".$year;
 	}
 
+	//5 degree validation
+
+
+	$deg1= $_REQUEST['degree1'];
+	$deg2= $_REQUEST['degree2'];
+	$deg3= $_REQUEST['degree3'];
+
+	if (empty($deg1) && empty($deg2) && empty($deg3)) {
+		echo "empty degree field";
+	}else{
+		echo "<br>DEGREE : ".$deg1." ".$deg2." ".$deg3;
+	}
+
+	//6 blood validation
+
+	// if (empty($_REQUEST['bg'])) {
+	// 	echo "please select blood group";
+	// }else {
+		//echo "<br> Blood group :".$_REQUEST['bg'];
+	// }
+	if(isset($_POST['bg'])){
+    $select1 = $_POST['bg'];
+    switch ($select1) {
+        case 'A+':
+            echo '<br/>blood group: A+';
+            break;
+        case 'B+':
+            echo '<br/>blood group: B+';
+            break;
+        case 'O-':
+            echo '<br/>blood group: O-';
+            break;
+        default:
+            echo "<br> Please select: bg";
+            break;
+    }
+}
+
+// 7 picture
+ $pic = $_REQUEST['pp'];
+ if (empty($pic)) {
+ 	echo "choose img";
+ }
 ?>
